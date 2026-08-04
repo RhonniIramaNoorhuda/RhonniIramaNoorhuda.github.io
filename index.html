@@ -21,6 +21,18 @@
             text-align: center; 
             border-bottom: 4px solid #3b82f6;
         }
+
+        /* Gaya untuk Foto Profil */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Membuat foto melingkar */
+            border: 4px solid white; /* Bingkai putih elegan */
+            object-fit: cover; /* Memastikan foto tidak distorsi */
+            margin-bottom: 20px; /* Jarak ke nama */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
         header h1 { margin: 0 0 10px 0; font-size: 2.5rem; letter-spacing: 1px; }
         header p { margin: 0; font-size: 1.2rem; color: #94a3b8; }
         
@@ -66,6 +78,8 @@
 <body>
 
     <header>
+        <!-- Menampilkan Foto Profil -->
+        <img src="profile.png" alt="Rhonni Irama Noorhuda" class="profile-pic">
         <h1>Rhonni Irama Noorhuda</h1>
         <p>S1 Teknik Komputer | Mobile & Web Developer</p>
     </header>
