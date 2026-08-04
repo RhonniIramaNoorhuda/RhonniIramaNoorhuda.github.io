@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio | Rhonni Irama Noorhuda</title>
     
-    <!-- Tautan untuk memanggil ikon FontAwesome -->
+    <!-- Tautan untuk memanggil ikon FontAwesome (Email, LinkedIn, dsb) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tautan untuk memanggil ikon Devicon (Flutter, Firebase, dll) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
     <style>
         /* Pengaturan Gaya (CSS) untuk Tampilan Profesional */
@@ -55,8 +58,52 @@
             padding-bottom: 0.75rem; 
             margin-top: 0; 
             font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
         
+        /* Gaya Khusus untuk Bagian Keahlian (Ikon & Tooltip) */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: flex-start;
+        }
+        .skill-icon {
+            position: relative;
+            font-size: 3.5rem; /* Ukuran ikon bahasa pemrograman */
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+        }
+        .skill-icon:hover {
+            transform: translateY(-8px); /* Efek melayang saat kursor diarahkan */
+        }
+        
+        /* Efek Teks Tooltip saat Hover */
+        .skill-icon::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -35px;
+            background-color: #0f172a;
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 5px 12px;
+            border-radius: 6px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 500;
+        }
+        .skill-icon:hover::after {
+            opacity: 1;
+            visibility: visible;
+            bottom: -40px;
+        }
+
         .project-card { 
             border-left: 4px solid #3b82f6; 
             padding-left: 1.5rem; 
@@ -108,6 +155,31 @@
         <section id="about">
             <h2>Tentang Saya</h2>
             <p>Saya adalah seorang pengembang perangkat lunak yang berfokus pada pembuatan aplikasi lintas platform (Mobile & Web) menggunakan <strong>Flutter</strong> dan <strong>Firebase</strong>. Saya memiliki pengalaman kuat dalam merancang arsitektur database, membangun logika bisnis yang efisien, serta mengintegrasikan sistem perangkat lunak dengan infrastruktur perangkat keras IoT.</p>
+        </section>
+
+        <!-- Bagian Keahlian Baru -->
+        <section id="skills">
+            <h2>Keahlian</h2>
+            <div class="skills-container">
+                <div class="skill-icon" data-tooltip="Flutter">
+                    <i class="devicon-flutter-plain colored"></i>
+                </div>
+                <div class="skill-icon" data-tooltip="Firebase">
+                    <i class="devicon-firebase-plain colored"></i>
+                </div>
+                <div class="skill-icon" data-tooltip="C++ (IoT)">
+                    <i class="devicon-cplusplus-plain colored"></i>
+                </div>
+                <div class="skill-icon" data-tooltip="Arduino IDE (NodeMCU)">
+                    <i class="devicon-arduino-plain colored"></i>
+                </div>
+                <div class="skill-icon" data-tooltip="VS Code">
+                    <i class="devicon-vscode-plain colored"></i>
+                </div>
+                <div class="skill-icon" data-tooltip="GitHub">
+                    <i class="devicon-github-original colored"></i>
+                </div>
+            </div>
         </section>
 
         <section id="projects">
