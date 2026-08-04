@@ -61,6 +61,28 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Gaya untuk Tombol Download CV */
+        .btn-download {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: #ffffff !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+        }
+        .btn-download:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        .btn-download i {
+            margin-right: 8px;
+        }
+
         /* Gaya Khusus untuk Bagian Pendidikan */
         .education-item {
             margin-bottom: 1.5rem;
@@ -92,14 +114,14 @@
         }
         .skill-icon {
             position: relative;
-            font-size: 3.5rem; /* Ukuran ikon bahasa pemrograman */
+            font-size: 3.5rem; 
             cursor: pointer;
             transition: transform 0.3s ease;
             display: flex;
             justify-content: center;
         }
         .skill-icon:hover {
-            transform: translateY(-8px); /* Efek melayang saat kursor diarahkan */
+            transform: translateY(-8px); 
         }
         
         /* Efek Teks Tooltip saat Hover */
@@ -177,9 +199,14 @@
         <section id="about">
             <h2>Tentang Saya</h2>
             <p>Saya adalah seorang pengembang perangkat lunak yang berfokus pada pembuatan aplikasi lintas platform (Mobile & Web) menggunakan <strong>Flutter</strong> dan <strong>Firebase</strong>. Saya memiliki pengalaman kuat dalam merancang arsitektur database, membangun logika bisnis yang efisien, serta mengintegrasikan sistem perangkat lunak dengan infrastruktur perangkat keras IoT.</p>
+            
+            <!-- Tombol Download CV -->
+            <a href="CV_Rhonni_Irama_Noorhuda.pdf" download class="btn-download">
+                <i class="fas fa-file-pdf"></i> Download CV
+            </a>
         </section>
 
-        <!-- Bagian Pendidikan Baru -->
+        <!-- Bagian Pendidikan -->
         <section id="education">
             <h2>Pendidikan</h2>
             <div class="education-item">
