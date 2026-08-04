@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio | Rhonni Irama Noorhuda</title>
+    
+    <!-- Tautan untuk memanggil ikon FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         /* Pengaturan Gaya (CSS) untuk Tampilan Profesional */
         body { 
@@ -73,6 +77,21 @@
         
         a { color: #3b82f6; text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
+
+        /* Gaya Khusus untuk Ikon Kontak */
+        .contact-list p {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            font-size: 1.05rem;
+        }
+        .contact-list i {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -107,9 +126,11 @@
 
         <section id="contact">
             <h2>Kontak & Profil</h2>
-            <p>Email: <a href="mailto:rhonniirama6@gmail.com">rhonniirama6@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/RhonniIramaNoorhuda" target="_blank">github.com/RhonniIramaNoorhuda</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/rhonni-irama-noorhuda-0770803a8/" target="_blank">linkedin.com/in/rhonni-irama-noorhuda-0770803a8</a></p>
+            <div class="contact-list">
+                <p><i class="fas fa-envelope"></i> Email: &nbsp;<a href="mailto:rhonniirama6@gmail.com">rhonniirama6@gmail.com</a></p>
+                <p><i class="fab fa-github"></i> GitHub: &nbsp;<a href="https://github.com/RhonniIramaNoorhuda" target="_blank">github.com/RhonniIramaNoorhuda</a></p>
+                <p><i class="fab fa-linkedin"></i> LinkedIn: &nbsp;<a href="https://www.linkedin.com/in/rhonni-irama-noorhuda-0770803a8/" target="_blank">linkedin.com/in/rhonni-irama-noorhuda-0770803a8</a></p>
+            </div>
         </section>
 
     </div>
