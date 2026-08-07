@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio | Rhonni Irama Noorhuda</title>
     
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
     <style>
@@ -172,6 +170,7 @@
             align-items: center;
             margin: 12px 0;
             font-size: 1.05rem;
+            word-break: break-all; 
         }
         .contact-list i {
             font-size: 1.5rem;
@@ -181,7 +180,14 @@
             text-align: center;
             transition: color 0.3s ease;
         }
-
+        .contact-label {
+            width: 90px;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+        .colon {
+            margin-right: 15px;
+        }
 
         .theme-toggle-btn, .lang-toggle-btn {
             position: fixed;
@@ -307,19 +313,32 @@
         <section id="contact">
             <h2 data-i18n="contact_title">Kontak & Profil</h2>
             <div class="contact-list">
-                <p><i class="fas fa-envelope"></i> Email: &nbsp;<a href="mailto:rhonniirama6@gmail.com">rhonniirama6@gmail.com</a></p>
-                <p><i class="fab fa-github"></i> GitHub: &nbsp;<a href="https://github.com/RhonniIramaNoorhuda" target="_blank">github.com/RhonniIramaNoorhuda</a></p>
-                <p><i class="fab fa-linkedin"></i> LinkedIn: &nbsp;<a href="https://www.linkedin.com/in/rhonni-irama-noorhuda-0770803a8/" target="_blank">linkedin.com/in/rhonni-irama-noorhuda-0770803a8</a></p>
+                <p>
+                    <i class="fas fa-envelope"></i> 
+                    <span class="contact-label">Email</span> 
+                    <span class="colon">:</span> 
+                    <a href="mailto:rhonniirama6@gmail.com">rhonniirama6@gmail.com</a>
+                </p>
+                <p>
+                    <i class="fab fa-github"></i> 
+                    <span class="contact-label">GitHub</span> 
+                    <span class="colon">:</span> 
+                    <a href="https://github.com/RhonniIramaNoorhuda" target="_blank">github.com/RhonniIramaNoorhuda</a>
+                </p>
+                <p>
+                    <i class="fab fa-linkedin"></i> 
+                    <span class="contact-label">LinkedIn</span> 
+                    <span class="colon">:</span> 
+                    <a href="https://www.linkedin.com/in/rhonni-irama-noorhuda-0770803a8/" target="_blank">linkedin.com/in/rhonni-irama-noorhuda-0770803a8</a>
+                </p>
             </div>
         </section>
 
     </div>
 
-    <!-- SCRIPT UNTUK FUNGSI DARK MODE & MULTI-BAHASA -->
+
     <script>
-        // ==========================================
-        // 1. PENGATURAN DARK MODE
-        // ==========================================
+
         const toggleBtn = document.getElementById('themeToggle');
         const toggleIcon = toggleBtn.querySelector('i');
         const bodyElement = document.body;
@@ -341,12 +360,10 @@
             }
         });
 
-        // ==========================================
-        // 2. PENGATURAN MULTI-BAHASA (INDONESIA / INGGRIS)
-        // ==========================================
+
         const langToggleBtn = document.getElementById('langToggle');
         
-        // Kamus Terjemahan
+
         const translations = {
             id: {
                 header_subtitle: "S1 Teknik Komputer | Mobile & Web Developer",
@@ -382,11 +399,9 @@
             }
         };
 
-        // Cek bahasa dari Local Storage atau gunakan bahasa Indonesia ('id') sebagai default
         let currentLang = localStorage.getItem('language') || 'id';
 
         function updateLanguage(lang) {
-            // Ubah teks semua elemen yang memiliki atribut data-i18n
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[lang][key]) {
@@ -394,15 +409,12 @@
                 }
             });
 
-            // Ubah teks tombol: Jika bahasa ID aktif, tombol nulis "EN" (agar bisa dipencet ke EN), dan sebaliknya.
             langToggleBtn.textContent = lang === 'id' ? 'EN' : 'ID';
             document.documentElement.lang = lang;
         }
 
-        // Terapkan bahasa saat halaman dimuat
         updateLanguage(currentLang);
 
-        // Aksi ketika tombol ganti bahasa ditekan
         langToggleBtn.addEventListener('click', () => {
             currentLang = currentLang === 'id' ? 'en' : 'id';
             localStorage.setItem('language', currentLang);
