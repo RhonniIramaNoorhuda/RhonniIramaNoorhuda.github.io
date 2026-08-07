@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    
+
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
     <style>
@@ -30,7 +30,6 @@
             border-bottom: 4px solid #3b82f6;
             transition: background-color 0.3s ease;
         }
-
 
         .profile-pic {
             width: 150px;
@@ -65,7 +64,6 @@
             transition: color 0.3s ease, border-color 0.3s ease;
         }
 
-
         .btn-download {
             display: inline-block;
             background-color: #3b82f6;
@@ -83,10 +81,7 @@
             transform: translateY(-2px);
             text-decoration: none;
         }
-        .btn-download i {
-            margin-right: 8px;
-        }
-
+        .btn-download i { margin-right: 8px; }
 
         .education-item { margin-bottom: 1.5rem; }
         .education-item:last-child { margin-bottom: 0; }
@@ -107,7 +102,6 @@
             transition: color 0.3s ease;
         }
         
-
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -124,7 +118,6 @@
         }
         .skill-icon:hover { transform: translateY(-8px); }
         
-
         .skill-icon::after {
             content: attr(data-tooltip);
             position: absolute;
@@ -147,7 +140,6 @@
             visibility: visible;
             bottom: -40px;
         }
-
 
         .project-card { 
             border-left: 4px solid #3b82f6; 
@@ -175,7 +167,6 @@
         a { color: #3b82f6; text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
 
-
         .contact-list p {
             display: flex;
             align-items: center;
@@ -192,9 +183,8 @@
         }
 
 
-        .theme-toggle-btn {
+        .theme-toggle-btn, .lang-toggle-btn {
             position: fixed;
-            bottom: 30px;
             right: 30px;
             background-color: #0f172a;
             color: #ffffff;
@@ -202,7 +192,6 @@
             border-radius: 50%;
             width: 55px;
             height: 55px;
-            font-size: 1.5rem;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -211,8 +200,22 @@
             justify-content: center;
             z-index: 1000;
         }
+        
+        .theme-toggle-btn {
+            bottom: 30px;
+            font-size: 1.5rem;
+        }
         .theme-toggle-btn:hover {
             transform: scale(1.1) rotate(15deg);
+        }
+
+        .lang-toggle-btn {
+            bottom: 95px;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        .lang-toggle-btn:hover {
+            transform: scale(1.1);
         }
 
 
@@ -220,36 +223,22 @@
             background-color: #0f172a; 
             color: #cbd5e1; 
         }
-        body.dark-mode header {
-            background-color: #020617; 
-        }
+        body.dark-mode header { background-color: #020617; }
         body.dark-mode section {
-            background-color: #1e293b;
+            background-color: #1e293b; 
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
         }
-        body.dark-mode h2 {
-            color: #f8fafc;
-            border-bottom: 2px solid #334155;
-        }
+        body.dark-mode h2 { color: #f8fafc; border-bottom: 2px solid #334155; }
         body.dark-mode .education-item h3,
-        body.dark-mode .project-card h3 {
-            color: #f8fafc;
-        }
-        body.dark-mode .education-item .description {
-            color: #94a3b8;
-        }
-        body.dark-mode .tech-stack {
-            background-color: #1e3a8a; 
-            color: #bfdbfe;
-        }
-        body.dark-mode .contact-list i {
-            color: #94a3b8;
-        }
-        body.dark-mode .skill-icon::after {
-            background-color: #f8fafc; 
-            color: #0f172a;
-        }
-        body.dark-mode .theme-toggle-btn {
+        body.dark-mode .project-card h3 { color: #f8fafc; }
+        body.dark-mode .education-item .description { color: #94a3b8; }
+        body.dark-mode .tech-stack { background-color: #1e3a8a; color: #bfdbfe; }
+        body.dark-mode .contact-list i { color: #94a3b8; }
+        body.dark-mode .skill-icon::after { background-color: #f8fafc; color: #0f172a; }
+        
+
+        body.dark-mode .theme-toggle-btn, 
+        body.dark-mode .lang-toggle-btn {
             background-color: #f8fafc;
             color: #0f172a;
         }
@@ -258,80 +247,65 @@
 <body>
 
 
+    <button class="lang-toggle-btn" id="langToggle" aria-label="Toggle Language">EN</button>
     <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Dark Mode">
         <i class="fas fa-moon"></i>
     </button>
 
     <header>
-
         <img src="profile.png" alt="Rhonni Irama Noorhuda" class="profile-pic">
         <h1>Rhonni Irama Noorhuda</h1>
-        <p>S1 Teknik Komputer | Mobile Developer</p>
+        <p data-i18n="header_subtitle">S1 Teknik Komputer | Mobile & Web Developer</p>
     </header>
 
     <div class="container">
         
         <section id="about">
-            <h2>Tentang Saya</h2>
-            <p>Saya adalah seorang pengembang perangkat lunak yang berfokus pada pembuatan aplikasi lintas platform (Mobile) menggunakan <strong>Flutter</strong> dan <strong>Firebase</strong>. Saya memiliki pengalaman kuat dalam merancang arsitektur database, membangun logika bisnis yang efisien, serta mengintegrasikan sistem perangkat lunak dengan infrastruktur perangkat keras IoT.</p>
+            <h2 data-i18n="about_title">Tentang Saya</h2>
+            <p data-i18n="about_desc">Saya adalah seorang pengembang perangkat lunak yang berfokus pada pembuatan aplikasi lintas platform (Mobile & Web) menggunakan <strong>Flutter</strong> dan <strong>Firebase</strong>. Saya memiliki pengalaman kuat dalam merancang arsitektur database, membangun logika bisnis yang efisien, serta mengintegrasikan sistem perangkat lunak dengan infrastruktur perangkat keras IoT.</p>
             
-
-            <a href="CV_Rhonni_Irama_Noorhuda.pdf" download class="btn-download">
+            <a href="CV_Rhonni_Irama_Noorhuda.pdf" download class="btn-download" data-i18n="download_cv">
                 <i class="fas fa-file-pdf"></i> Download CV
             </a>
         </section>
 
-
         <section id="education">
-            <h2>Pendidikan</h2>
+            <h2 data-i18n="edu_title">Pendidikan</h2>
             <div class="education-item">
-                <h3>Sarjana Teknik (S1) Teknik Komputer</h3>
-                <p class="institution">Universitas Telkom</p>
-                <p class="description">Berfokus pada integrasi antara rekayasa perangkat lunak dan sistem perangkat keras. Selama masa studi, saya mendalami pengembangan aplikasi mobile, serta mengimplementasikan teknologi Internet of Things (IoT) untuk solusi otomatisasi dunia nyata.</p>
+                <h3 data-i18n="edu_degree">Sarjana Teknik (S1) Teknik Komputer</h3>
+                <p class="institution" data-i18n="edu_uni">Universitas Telkom</p>
+                <p class="description" data-i18n="edu_desc">Berfokus pada integrasi antara rekayasa perangkat lunak dan sistem perangkat keras. Selama masa studi, saya mendalami pengembangan aplikasi mobile dan web, serta mengimplementasikan teknologi Internet of Things (IoT) untuk solusi otomatisasi dunia nyata.</p>
             </div>
         </section>
 
-
         <section id="skills">
-            <h2>Keahlian</h2>
+            <h2 data-i18n="skills_title">Keahlian</h2>
             <div class="skills-container">
-                <div class="skill-icon" data-tooltip="Flutter">
-                    <i class="devicon-flutter-plain colored"></i>
-                </div>
-                <div class="skill-icon" data-tooltip="Firebase">
-                    <i class="devicon-firebase-plain colored"></i>
-                </div>
-                <div class="skill-icon" data-tooltip="C++ (IoT)">
-                    <i class="devicon-cplusplus-plain colored"></i>
-                </div>
-                <div class="skill-icon" data-tooltip="Arduino IDE (NodeMCU)">
-                    <i class="devicon-arduino-plain colored"></i>
-                </div>
-                <div class="skill-icon" data-tooltip="VS Code">
-                    <i class="devicon-vscode-plain colored"></i>
-                </div>
-                <div class="skill-icon" data-tooltip="GitHub">
-                    <i class="devicon-github-original colored"></i>
-                </div>
+                <div class="skill-icon" data-tooltip="Flutter"><i class="devicon-flutter-plain colored"></i></div>
+                <div class="skill-icon" data-tooltip="Firebase"><i class="devicon-firebase-plain colored"></i></div>
+                <div class="skill-icon" data-tooltip="C++ (IoT)"><i class="devicon-cplusplus-plain colored"></i></div>
+                <div class="skill-icon" data-tooltip="Arduino IDE (NodeMCU)"><i class="devicon-arduino-plain colored"></i></div>
+                <div class="skill-icon" data-tooltip="VS Code"><i class="devicon-vscode-plain colored"></i></div>
+                <div class="skill-icon" data-tooltip="GitHub"><i class="devicon-github-original colored"></i></div>
             </div>
         </section>
 
         <section id="projects">
-            <h2>Proyek Saya</h2>
+            <h2 data-i18n="proj_title">Proyek Saya</h2>
 
             <div class="project-card">
-                <h3>Sistem Manajemen Pemesanan Parkir Motor</h3>
-                <p>Aplikasi mobile terintegrasi IoT untuk otomatisasi reservasi dan akses gerbang parkir di area Landmark Tower Universitas Telkom. Sistem ini memungkinkan kontrol gerbang secara real-time melalui komunikasi antara aplikasi dan mikrokontroler.</p>
+                <h3 data-i18n="proj1_title">Sistem Manajemen Pemesanan Parkir Motor</h3>
+                <p data-i18n="proj1_desc">Aplikasi mobile terintegrasi IoT untuk otomatisasi reservasi dan akses gerbang parkir di area Landmark Tower Universitas Telkom. Sistem ini memungkinkan kontrol gerbang secara real-time melalui komunikasi antara aplikasi dan mikrokontroler.</p>
                 <span class="tech-stack">Flutter • NodeMCU ESP8266 • RFID MFRC-522 • Servo SG-90</span>
                 
                 <div style="margin-top: 15px;">
-                    <a href="https://github.com/RhonniIramaNoorhuda/smart_park_tel_u.git" target="_blank" style="font-size: 0.9rem; font-weight: 600;">Lihat Repositori GitHub &rarr;</a>
+                    <a href="https://github.com/RhonniIramaNoorhuda/smart_park_tel_u.git" target="_blank" style="font-size: 0.9rem; font-weight: 600;" data-i18n="proj1_link">Lihat Repositori GitHub &rarr;</a>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <h2>Kontak & Profil</h2>
+            <h2 data-i18n="contact_title">Kontak & Profil</h2>
             <div class="contact-list">
                 <p><i class="fas fa-envelope"></i> Email: &nbsp;<a href="mailto:rhonniirama6@gmail.com">rhonniirama6@gmail.com</a></p>
                 <p><i class="fab fa-github"></i> GitHub: &nbsp;<a href="https://github.com/RhonniIramaNoorhuda" target="_blank">github.com/RhonniIramaNoorhuda</a></p>
@@ -341,35 +315,98 @@
 
     </div>
 
-
+    <!-- SCRIPT UNTUK FUNGSI DARK MODE & MULTI-BAHASA -->
     <script>
+        // ==========================================
+        // 1. PENGATURAN DARK MODE
+        // ==========================================
         const toggleBtn = document.getElementById('themeToggle');
         const toggleIcon = toggleBtn.querySelector('i');
         const bodyElement = document.body;
 
-
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme === 'dark') {
             bodyElement.classList.add('dark-mode');
-            toggleIcon.classList.remove('fa-moon');
-            toggleIcon.classList.add('fa-sun'); 
+            toggleIcon.classList.replace('fa-moon', 'fa-sun');
         }
-
 
         toggleBtn.addEventListener('click', () => {
             bodyElement.classList.toggle('dark-mode');
-            
             if (bodyElement.classList.contains('dark-mode')) {
-
                 localStorage.setItem('theme', 'dark');
-                toggleIcon.classList.remove('fa-moon');
-                toggleIcon.classList.add('fa-sun');
+                toggleIcon.classList.replace('fa-moon', 'fa-sun');
             } else {
-
                 localStorage.setItem('theme', 'light');
-                toggleIcon.classList.remove('fa-sun');
-                toggleIcon.classList.add('fa-moon');
+                toggleIcon.classList.replace('fa-sun', 'fa-moon');
             }
+        });
+
+        // ==========================================
+        // 2. PENGATURAN MULTI-BAHASA (INDONESIA / INGGRIS)
+        // ==========================================
+        const langToggleBtn = document.getElementById('langToggle');
+        
+        // Kamus Terjemahan
+        const translations = {
+            id: {
+                header_subtitle: "S1 Teknik Komputer | Mobile & Web Developer",
+                about_title: "Tentang Saya",
+                about_desc: "Saya adalah seorang pengembang perangkat lunak yang berfokus pada pembuatan aplikasi lintas platform (Mobile & Web) menggunakan <strong>Flutter</strong> dan <strong>Firebase</strong>. Saya memiliki pengalaman kuat dalam merancang arsitektur database, membangun logika bisnis yang efisien, serta mengintegrasikan sistem perangkat lunak dengan infrastruktur perangkat keras IoT.",
+                download_cv: "<i class='fas fa-file-pdf'></i> Download CV",
+                edu_title: "Pendidikan",
+                edu_degree: "Sarjana Teknik (S1) Teknik Komputer",
+                edu_uni: "Universitas Telkom",
+                edu_desc: "Berfokus pada integrasi antara rekayasa perangkat lunak dan sistem perangkat keras. Selama masa studi, saya mendalami pengembangan aplikasi mobile dan web, serta mengimplementasikan teknologi Internet of Things (IoT) untuk solusi otomatisasi dunia nyata.",
+                skills_title: "Keahlian",
+                proj_title: "Proyek Saya",
+                proj1_title: "Sistem Manajemen Pemesanan Parkir Motor",
+                proj1_desc: "Aplikasi mobile terintegrasi IoT untuk otomatisasi reservasi dan akses gerbang parkir di area Landmark Tower Universitas Telkom. Sistem ini memungkinkan kontrol gerbang secara real-time melalui komunikasi antara aplikasi dan mikrokontroler.",
+                proj1_link: "Lihat Repositori GitHub &rarr;",
+                contact_title: "Kontak & Profil"
+            },
+            en: {
+                header_subtitle: "B.Eng in Computer Engineering | Mobile & Web Developer",
+                about_title: "About Me",
+                about_desc: "I am a software developer focusing on building cross-platform applications (Mobile & Web) using <strong>Flutter</strong> and <strong>Firebase</strong>. I have strong experience in designing database architectures, building efficient business logic, and integrating software systems with IoT hardware infrastructure.",
+                download_cv: "<i class='fas fa-file-pdf'></i> Download CV",
+                edu_title: "Education",
+                edu_degree: "Bachelor of Engineering in Computer Engineering",
+                edu_uni: "Telkom University",
+                edu_desc: "Focused on the integration between software engineering and hardware systems. During my studies, I delved into mobile and web application development, as well as implementing Internet of Things (IoT) technologies for real-world automation solutions.",
+                skills_title: "Skills",
+                proj_title: "My Projects",
+                proj1_title: "Motorcycle Parking Reservation Management System",
+                proj1_desc: "IoT-integrated mobile application for automated reservation and parking gate access in the Landmark Tower area of Telkom University. This system enables real-time gate control through communication between the application and microcontrollers.",
+                proj1_link: "View GitHub Repository &rarr;",
+                contact_title: "Contact & Profile"
+            }
+        };
+
+        // Cek bahasa dari Local Storage atau gunakan bahasa Indonesia ('id') sebagai default
+        let currentLang = localStorage.getItem('language') || 'id';
+
+        function updateLanguage(lang) {
+            // Ubah teks semua elemen yang memiliki atribut data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Ubah teks tombol: Jika bahasa ID aktif, tombol nulis "EN" (agar bisa dipencet ke EN), dan sebaliknya.
+            langToggleBtn.textContent = lang === 'id' ? 'EN' : 'ID';
+            document.documentElement.lang = lang;
+        }
+
+        // Terapkan bahasa saat halaman dimuat
+        updateLanguage(currentLang);
+
+        // Aksi ketika tombol ganti bahasa ditekan
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'id' ? 'en' : 'id';
+            localStorage.setItem('language', currentLang);
+            updateLanguage(currentLang);
         });
     </script>
 </body>
